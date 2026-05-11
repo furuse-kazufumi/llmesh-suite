@@ -1,0 +1,79 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llmesh-suite"
+version = "0.1.0"
+description = "Meta-package: install llmesh (multi-protocol LLM gateway) + llove (TUI dashboard) in one go."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Kazufumi Furuse", email = "kazufumi@furuse.work" },
+]
+keywords = [
+  "llm",
+  "mesh",
+  "industrial-iot",
+  "tui",
+  "dashboard",
+  "modbus",
+  "opcua",
+  "mqtt",
+  "rag",
+  "audit",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: System :: Monitoring",
+  "Topic :: Software Development :: User Interfaces",
+]
+dependencies = [
+  # 純メタパッケージ. 両者を 1 発で入れる目的のみ. 個別パッケージのバージョン
+  # ピン留めは各リポジトリに委ねる (lower-bound だけここで宣言).
+  "llmesh-mcp>=3.1.0",
+  "llmesh-llove>=0.3.0a1",
+]
+
+[project.optional-dependencies]
+# llmesh の主要 extras を suite からも呼べるよう re-export.
+# (PEP 508 で extras-of-extras は表現できないため、ユーザーは llmesh-mcp 側の
+#  extras を直接指定するか、本パッケージの該当 extras を使う)
+industrial = ["llmesh-mcp[industrial]>=3.1.0"]
+vision     = ["llmesh-mcp[vision]>=3.1.0"]
+presidio   = ["llmesh-mcp[presidio]>=3.1.0"]
+rag        = ["llmesh-mcp[rag]>=3.1.0"]
+all = [
+  "llmesh-mcp[industrial,vision,presidio,rag,email,udp,ssh,ftp,mgmt,can,bacnet]>=3.1.0",
+  "llmesh-llove>=0.3.0a1",
+]
+
+[project.urls]
+Homepage    = "https://github.com/furuse-kazufumi/llmesh"
+Backend     = "https://github.com/furuse-kazufumi/llmesh"
+Dashboard   = "https://github.com/furuse-kazufumi/llove"
+Issues      = "https://github.com/furuse-kazufumi/llmesh-suite/issues"
+
+[tool.hatch.build.targets.wheel]
+# 純メタパッケージのためコードを含まない. hatchling に空の wheel を作らせる
+# ためのワークアラウンドとして "_marker" モジュールを 1 つだけ含める.
+packages = ["llmesh_suite"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/llmesh_suite",
+  "/README.md",
+  "/LICENSE",
+  "/pyproject.toml",
+]
