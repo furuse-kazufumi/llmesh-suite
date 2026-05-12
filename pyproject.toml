@@ -7,7 +7,7 @@ name = "llmesh-suite"
 version = "0.1.0"
 description = "Meta-package: install llmesh (multi-protocol LLM gateway) + llove (TUI dashboard) in one go."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11,<3.12"
 license = { text = "MIT" }
 authors = [
   { name = "Kazufumi Furuse", email = "kazufumi@furuse.work" },
