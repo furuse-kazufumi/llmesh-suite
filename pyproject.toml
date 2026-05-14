@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "llmesh-suite"
-version = "0.1.0"
-description = "Meta-package: install llmesh (multi-protocol LLM gateway) + llove (TUI dashboard) in one go."
+version = "0.2.0"
+description = "Meta-package: install llmesh (multi-protocol LLM gateway) + llove (TUI dashboard) + llive (self-evolving modular-memory LLM) in one go."
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
 license = { text = "MIT" }
