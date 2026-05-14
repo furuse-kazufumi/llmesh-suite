@@ -40,10 +40,11 @@ classifiers = [
   "Topic :: Software Development :: User Interfaces",
 ]
 dependencies = [
-  # 純メタパッケージ. 両者を 1 発で入れる目的のみ. 個別パッケージのバージョン
+  # 純メタパッケージ. 三者を 1 発で入れる目的のみ. 個別パッケージのバージョン
   # ピン留めは各リポジトリに委ねる (lower-bound だけここで宣言).
   "llmesh-mcp>=3.1.0",
   "llmesh-llove>=0.3.0a1",
+  "llmesh-llive>=0.5.0",
 ]
 
 [project.optional-dependencies]
