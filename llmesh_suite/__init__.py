@@ -16,4 +16,4 @@ Install via ``pip install llmesh-suite`` to get all three at once, then run::
     llive --help                # llive CLI for memory / evolution / triz
 """
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
