@@ -42,8 +42,10 @@ classifiers = [
 dependencies = [
   # 純メタパッケージ. 三者を 1 発で入れる目的のみ. 個別パッケージのバージョン
   # ピン留めは各リポジトリに委ねる (lower-bound だけここで宣言).
+  # llmesh-llove は 0.3.0a1 が未 PyPI publish のため、現在 PyPI 入手可能な
+  # 0.2.2 を最低値に。0.3.x が publish されれば自動で満たす。
   "llmesh-mcp>=3.1.0",
-  "llmesh-llove>=0.3.0a1",
+  "llmesh-llove>=0.2.2",
   "llmesh-llive>=0.5.0",
 ]
 
