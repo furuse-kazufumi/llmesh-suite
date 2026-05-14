@@ -6,15 +6,16 @@
 pip install llmesh-suite
 ```
 
-Pulls in two sibling projects in a single command:
+Pulls in three sibling projects in a single command:
 
 | Package | Role | Repo |
 |---------|------|------|
 | [`llmesh-mcp`](https://pypi.org/project/llmesh-mcp/)   | Multi-protocol LLM gateway (Modbus / OPC-UA / MQTT / HTTP / SSH / Email / RAG / Audit / SPC) | https://github.com/furuse-kazufumi/llmesh |
 | [`llmesh-llove`](https://pypi.org/project/llmesh-llove/) | Terminal-first dashboard (SensorEvent / SPC / RAG / Audit + games & demos) | https://github.com/furuse-kazufumi/llove |
+| [`llmesh-llive`](https://pypi.org/project/llmesh-llive/) | Self-evolving modular-memory LLM (4-layer external memory + formal verification + TRIZ self-evolution + Rust hot-path) | https://github.com/furuse-kazufumi/llive |
 
 This package itself contains **no runtime code** — it is a pure dependency
-shim so that users do not have to remember two install names.
+shim so that users do not have to remember three install names.
 
 ## Why a meta-package, not a monorepo?
 
