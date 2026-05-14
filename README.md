@@ -21,17 +21,18 @@ shim so that users do not have to remember three install names.
 
 `llmesh` is designed to run on embedded Linux / RTOS targets with minimal
 dependencies, so it cannot pull in `textual` / `rich` / `pillow` (which
-`llove` requires for its TUI). Keeping the two as separate packages
-preserves:
+`llove` requires for its TUI), nor `torch` / `faiss` / `peft` / `cryptography`
+(which `llive` requires for its 4-layer memory + signed adapters). Keeping
+the three as separate packages preserves:
 
 * **Independent deployability** — `llmesh-mcp` on the gateway, `llmesh-llove`
-  on the operator console.
+  on the operator console, `llmesh-llive` on the GPU node.
 * **Independent versioning** — each project follows its own SemVer.
-* **Independent test surfaces** — `llove`'s textual-snapshot tests do not
-  block `llmesh`'s OWASP-clean CI.
+* **Independent test surfaces** — `llove`'s textual-snapshot tests and
+  `llive`'s formal-verification suite do not block `llmesh`'s OWASP-clean CI.
 
-A meta-package gives users the "one command, both tools" experience without
-forcing the two repositories into a monolith.
+A meta-package gives users the "one command, all tools" experience without
+forcing the three repositories into a monolith.
 
 ## Quick start
 
