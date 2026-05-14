@@ -59,7 +59,7 @@ presidio   = ["llmesh-mcp[presidio]>=3.1.0"]
 rag        = ["llmesh-mcp[rag]>=3.1.0"]
 all = [
   "llmesh-mcp[industrial,vision,presidio,rag,email,udp,ssh,ftp,mgmt,can,bacnet]>=3.1.0",
-  "llmesh-llove>=0.3.0a1",
+  "llmesh-llove>=0.2.2",
   "llmesh-llive>=0.5.0",
 ]
 # llive 単体の追加 extras (継続学習 + 形式検証 + Rust kernel 等).
