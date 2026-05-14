@@ -40,12 +40,22 @@ forcing the three repositories into a monolith.
 pip install llmesh-suite
 llmesh dashboard            # llmesh CLI spawns llove TUI via subprocess
 llove demo                  # or run llove directly
+llive --help                # self-evolving modular-memory LLM CLI
 ```
 
-For the full industrial / vision / RAG stack:
+For the full industrial / vision / RAG stack (everything across the three projects):
 
 ```bash
 pip install "llmesh-suite[all]"
+```
+
+Selective extras:
+
+```bash
+pip install "llmesh-suite[industrial]"     # llmesh industrial protocols
+pip install "llmesh-suite[rag]"            # llmesh RAG layer
+pip install "llmesh-suite[llive-torch]"    # llive HF + faiss + peft + hdbscan
+pip install "llmesh-suite[llive-verify]"   # llive Z3 SMT verifier (EVO-04)
 ```
 
 ## Disambiguation
