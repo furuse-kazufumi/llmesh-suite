@@ -65,10 +65,11 @@ llive-torch  = ["llmesh-llive[torch]>=0.5.0"]
 llive-verify = ["llmesh-llive[verify]>=0.5.0"]
 
 [project.urls]
-Homepage    = "https://github.com/furuse-kazufumi/llmesh"
-Backend     = "https://github.com/furuse-kazufumi/llmesh"
-Dashboard   = "https://github.com/furuse-kazufumi/llove"
-Issues      = "https://github.com/furuse-kazufumi/llmesh-suite/issues"
+Homepage         = "https://github.com/furuse-kazufumi/llmesh"
+Backend          = "https://github.com/furuse-kazufumi/llmesh"
+Dashboard        = "https://github.com/furuse-kazufumi/llove"
+"Self-evolving"  = "https://github.com/furuse-kazufumi/llive"
+Issues           = "https://github.com/furuse-kazufumi/llmesh-suite/issues"
 
 [tool.hatch.build.targets.wheel]
 # 純メタパッケージのためコードを含まない. hatchling に空の wheel を作らせる
