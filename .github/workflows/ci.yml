@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    # 純メタパッケージのため、test は無し。build + twine check + dry install で十分。
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install build tools
+        run: pip install build twine
+
+      - name: Build wheel + sdist
+        run: python -m build
+
+      - name: twine check (sdist + wheel)
+        run: twine check dist/*
+
+      - name: Verify wheel can be resolved (dry-install)
+        # 3 兄弟の依存解決が PyPI で実際に成立するかを毎 push で確認。
+        # 1 つでも version pin が外れた瞬間にここで気付ける。
+        run: |
+          pip install --dry-run dist/llmesh_suite-*.whl
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: llmesh-suite-dist
+          path: dist/*
