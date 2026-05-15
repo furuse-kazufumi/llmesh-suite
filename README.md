@@ -1,6 +1,8 @@
 # llmesh-suite
 
-**One-shot installer for the llmesh family.**
+> **Part of the FullSense ™ family** — `llmesh` ・ `llive` ・ `llove` の 3 製品を束ねる FullSense ブランドのワンショット installer。1 コマンドで FullSense ファミリーをまとめてセットアップします。
+
+**One-shot installer for the FullSense / llmesh family.**
 
 ```bash
 pip install llmesh-suite
